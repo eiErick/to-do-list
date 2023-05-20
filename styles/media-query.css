@@ -1,18 +1,22 @@
 @charset "UTF-8";
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 560px){
     body {
         font-size: 1.3em;
     }
 
     #taskInput{
-        width: 250px;
+        width: 190px;
         height: 60px;
         font-size: 18px;
     }
 
-    button {
+    button#add {
         height: 60px;
         font-size: 18px;
+    }
+
+    #deleteCompletedTasks {
+        height: 60px;
     }
 }

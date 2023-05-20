@@ -28,6 +28,14 @@ function addTask() {
   }
 }
 
+  // Adicionar evento de escuta à tecla "Enter" no campo de entrada
+var taskInput = document.getElementById('taskInput');
+taskInput.addEventListener('keydown', function(event) {
+if (event.key === 'Enter') {
+    addTask();
+  }
+});
+
 function addTaskToList(task, completed) {
   var taskList = document.getElementById('taskList');
 
