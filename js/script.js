@@ -6,11 +6,22 @@ function addTask() {
   var taskList = document.getElementById('taskList');
 
   var task = taskInput.value;
+  
   if (task !== '') {
     tasks.push(task); // Adicionar a tarefa ao array
     taskInput.value = ''; // Limpar o campo de entrada
 
-    // Atualizar a lista de tarefas
-    taskList.innerHTML += '<li>' + task + '</li>';
+    // Criar um elemento <li> para a tarefa
+    var listItem = document.createElement('li');
+
+    // Criar um elemento <label> com o checkbox e o texto da tarefa
+    var label = document.createElement('label');
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(task));
+
+    listItem.appendChild(label); // Adicionar a label ao item da lista
+    taskList.appendChild(listItem); // Adicionar o item à lista de tarefas
   }
 }
