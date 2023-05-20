@@ -3,5 +3,12 @@
 @media screen and (max-width: 500px){
     #taskInput{
         width: 250px;
+        height: 60px;
+        font-size: 18px;
+    }
+
+    button {
+        height: 60px;
+        font-size: 18px;
     }
 }
