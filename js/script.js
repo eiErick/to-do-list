@@ -7,7 +7,7 @@ if (savedTasks) {
   tasks = JSON.parse(savedTasks);
   // Atualizar a lista de tarefas com as tarefas recuperadas
   tasks.forEach(function(task) {
-    addTaskToList(task);
+    addTaskToList(task.text, task.completed); // Passa também o status de conclusão
   });
 }
 
@@ -16,18 +16,19 @@ function addTask() {
   var task = taskInput.value;
 
   if (task !== '') {
-    tasks.push(task); // Adicionar a tarefa ao array
+    var newTask = { text: task, completed: false }; // Adiciona o status de conclusão
+    tasks.push(newTask); // Adicionar a tarefa ao array
     taskInput.value = ''; // Limpar o campo de entrada
 
     // Salvar as tarefas atualizadas no Local Storage
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
     // Adicionar a nova tarefa à lista de tarefas
-    addTaskToList(task);
+    addTaskToList(newTask.text, newTask.completed);
   }
 }
 
-function addTaskToList(task) {
+function addTaskToList(task, completed) {
   var taskList = document.getElementById('taskList');
 
   // Criar um elemento <li> para a tarefa
@@ -37,11 +38,22 @@ function addTaskToList(task) {
   var label = document.createElement('label');
   var checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
+  checkbox.checked = completed; // Define o estado de conclusão com base no valor passado
   label.appendChild(checkbox);
   label.appendChild(document.createTextNode(task));
 
   // Adicionar um evento de escuta para detectar o clique na checkbox
   checkbox.addEventListener('change', function() {
+    var index = tasks.findIndex(function(item) {
+      return item.text === task;
+    });
+
+    if (index !== -1) {
+      tasks[index].completed = this.checked; // Atualiza o status de conclusão no array de tarefas
+      // Salvar as tarefas atualizadas no Local Storage
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
     if (this.checked) {
       this.parentNode.style.textDecoration = 'line-through';
     } else {
@@ -59,7 +71,9 @@ function deleteCompletedTasks() {
 
   completedTasks.forEach(function(task) {
     var taskText = task.textContent;
-    var index = tasks.indexOf(taskText);
+    var index = tasks.findIndex(function(item) {
+      return item.text === taskText;
+    });
 
     if (index !== -1) {
       tasks.splice(index, 1); // Remover a tarefa do array
@@ -71,3 +85,4 @@ function deleteCompletedTasks() {
   // Salvar as tarefas atualizadas no Local Storage
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
