@@ -52,3 +52,22 @@ function addTaskToList(task) {
   listItem.appendChild(label); // Adicionar a label ao item da lista
   taskList.appendChild(listItem); // Adicionar o item à lista de tarefas
 }
+
+function deleteCompletedTasks() {
+  var taskList = document.getElementById('taskList');
+  var completedTasks = taskList.querySelectorAll('li label[style="text-decoration: line-through;"]');
+
+  completedTasks.forEach(function(task) {
+    var taskText = task.textContent;
+    var index = tasks.indexOf(taskText);
+
+    if (index !== -1) {
+      tasks.splice(index, 1); // Remover a tarefa do array
+    }
+
+    taskList.removeChild(task.parentNode); // Remover o item da lista de tarefas
+  });
+
+  // Salvar as tarefas atualizadas no Local Storage
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}

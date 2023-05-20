@@ -28,14 +28,27 @@ body {
     font-size: 14px;
 }
 
-button{
+button#add{
     border: none;
     border-radius: 0 5px 5px 0;
     height: 40px;
-    margin-left: -4px;
+    margin-left: -6px;
     padding: 10px;
     background: royalblue;
     font-size: 14px;
+    cursor: pointer;
+}
+
+#deleteCompletedTasks {
+    border: none;
+    cursor: pointer;
+    background-color: darkred;
+    height: 40px;
+    padding: 0 10px 0 10px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+    border-radius: 4px;
 }
 
 #taskList {
