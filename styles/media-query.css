@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 500px){
+    #taskInput{
+        width: 250px;
+    }
+}
