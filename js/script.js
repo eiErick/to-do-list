@@ -21,6 +21,15 @@ function addTask() {
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(task));
 
+    // Adicionar um evento de escuta para detectar o clique na checkbox
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        this.parentNode.style.textDecoration = 'line-through';
+      } else {
+        this.parentNode.style.textDecoration = 'none';
+      }
+    });
+
     listItem.appendChild(label); // Adicionar a label ao item da lista
     taskList.appendChild(listItem); // Adicionar o item à lista de tarefas
   }
