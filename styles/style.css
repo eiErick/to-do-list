@@ -10,7 +10,8 @@
 body {
     height: 100vh;
     width: 100%;
-    background-color: #2b2a33;
+    /*background-image: linear-gradient(to right, #2C1C4B, #0e0e0e);*/
+    background-color: #1A1A1A;
     color: white;
     display: flex;
     justify-content: center;
@@ -19,7 +20,7 @@ body {
 
 #taskInput {
     margin-top: 30px;
-    width: 400px;
+    width: 450px;
     height: 40px;
     border: none;
     border-radius: 5px 0 0 5px;
@@ -34,15 +35,16 @@ button#add{
     height: 40px;
     margin-left: -6px;
     padding: 10px;
-    background: royalblue;
+    background: #007BFF;  
     font-size: 14px;
     cursor: pointer;
+    color: white;
 }
 
 #deleteCompletedTasks {
     border: none;
     cursor: pointer;
-    background-color: darkred;
+    background-color: #DC3545;
     height: 40px;
     padding: 0 10px 0 10px;
     position: relative;
