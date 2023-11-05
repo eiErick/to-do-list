@@ -1,96 +1,82 @@
-// Array para armazenar as tarefas
-var tasks = [];
+let tasks = [];
 
-// Recuperar as tarefas do Local Storage, se existirem
-var savedTasks = localStorage.getItem('tasks');
+const savedTasks = localStorage.getItem("tasks");
 if (savedTasks) {
   tasks = JSON.parse(savedTasks);
-  // Atualizar a lista de tarefas com as tarefas recuperadas
   tasks.forEach(function(task) {
-    addTaskToList(task.text, task.completed); // Passa também o status de conclusão
+    addTaskToList(task.text, task.completed);
   });
 }
 
 function addTask() {
-  var taskInput = document.getElementById('taskInput');
-  var task = taskInput.value;
+  const taskInput = document.querySelector("#taskInput");
+  let task = taskInput.value;
 
-  if (task !== '') {
-    var newTask = { text: task, completed: false }; // Adiciona o status de conclusão
-    tasks.push(newTask); // Adicionar a tarefa ao array
-    taskInput.value = ''; // Limpar o campo de entrada
+  if (task !== "") {
+    let newTask = { text: task, completed: false };
+    tasks.push(newTask);
+    taskInput.value = "";
 
-    // Salvar as tarefas atualizadas no Local Storage
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-
-    // Adicionar a nova tarefa à lista de tarefas
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     addTaskToList(newTask.text, newTask.completed);
   }
 }
 
-  // Adicionar evento de escuta à tecla "Enter" no campo de entrada
-var taskInput = document.getElementById('taskInput');
-taskInput.addEventListener('keydown', function(event) {
-if (event.key === 'Enter') {
+const taskInput = document.querySelector("#taskInput");
+taskInput.addEventListener("keydown", function(event) {
+if (event.key === "Enter") {
     addTask();
   }
 });
 
 function addTaskToList(task, completed) {
-  var taskList = document.getElementById('taskList');
+  const taskList = document.getElementById("taskList");
+  const listItem = document.createElement("li");
+  const label = document.createElement("label");
+  const checkbox = document.createElement("input");
 
-  // Criar um elemento <li> para a tarefa
-  var listItem = document.createElement('li');
-
-  // Criar um elemento <label> com o checkbox e o texto da tarefa
-  var label = document.createElement('label');
-  var checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.checked = completed; // Define o estado de conclusão com base no valor passado
   label.appendChild(checkbox);
   label.appendChild(document.createTextNode(task));
+  checkbox.type = "checkbox";
+  checkbox.checked = completed; 
 
-  // Adicionar um evento de escuta para detectar o clique na checkbox
-  checkbox.addEventListener('change', function() {
-    var index = tasks.findIndex(function(item) {
+  checkbox.addEventListener("change", function() {
+    const index = tasks.findIndex(function(item) {
       return item.text === task;
     });
 
     if (index !== -1) {
-      tasks[index].completed = this.checked; // Atualiza o status de conclusão no array de tarefas
-      // Salvar as tarefas atualizadas no Local Storage
-      localStorage.setItem('tasks', JSON.stringify(tasks));
+      tasks[index].completed = this.checked; 
+      localStorage.setItem("tasks", JSON.stringify(tasks));
     }
 
     if (this.checked) {
-      this.parentNode.style.textDecoration = 'line-through';
+      this.parentNode.style.textDecoration = "line-through";
     } else {
-      this.parentNode.style.textDecoration = 'none';
+      this.parentNode.style.textDecoration = "none";
     }
   });
 
-  listItem.appendChild(label); // Adicionar a label ao item da lista
-  taskList.appendChild(listItem); // Adicionar o item à lista de tarefas
+  listItem.appendChild(label);
+  taskList.appendChild(listItem);
 }
 
 function deleteCompletedTasks() {
-  var taskList = document.getElementById('taskList');
-  var completedTasks = taskList.querySelectorAll('li label[style="text-decoration: line-through;"]');
+  const taskList = document.getElementById("taskList");
+  const completedTasks = taskList.querySelectorAll("li label[style='text-decoration: line-through;']");
 
   completedTasks.forEach(function(task) {
-    var taskText = task.textContent;
-    var index = tasks.findIndex(function(item) {
+    const taskText = task.textContent;
+    const index = tasks.findIndex(function(item) {
       return item.text === taskText;
     });
 
     if (index !== -1) {
-      tasks.splice(index, 1); // Remover a tarefa do array
+      tasks.splice(index, 1);
     }
 
-    taskList.removeChild(task.parentNode); // Remover o item da lista de tarefas
+    taskList.removeChild(task.parentNode); 
   });
 
-  // Salvar as tarefas atualizadas no Local Storage
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
