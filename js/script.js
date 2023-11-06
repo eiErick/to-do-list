@@ -17,7 +17,7 @@ if (savedTasks) {
 
 function addTask() {
   const taskInput = document.querySelector("#taskInput");
-  let task = taskInput.value;
+  let task = capitalizeFirstLetter(taskInput.value);
 
   if (task !== "") {
     let newTask = { text: task, completed: false };
@@ -86,4 +86,8 @@ function deleteCompletedTasks() {
   });
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
