@@ -18,8 +18,16 @@ if (savedTasks) {
 function addTask() {
   const taskInput = document.querySelector("#taskInput");
   let task = capitalizeFirstLetter(taskInput.value);
+  let itemExistente = false;
 
-  if (task !== "") {
+  tasks.forEach(ItemTask => {
+    if (ItemTask.text.toUpperCase() == task.toUpperCase()) {
+      alert("Item já existente!");
+      itemExistente = true;
+    }
+  });
+
+  if (task !== "" && !itemExistente) {
     let newTask = { text: task, completed: false };
     tasks.push(newTask);
     taskInput.value = "";
