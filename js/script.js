@@ -1,6 +1,13 @@
+const btnAddTask = document.querySelector(".btn-add-task");
+const btnDeleteTask = document.querySelector(".btn-delete-task");
+
+btnAddTask.addEventListener("click", addTask);
+btnDeleteTask.addEventListener("click", deleteCompletedTasks);
+
 let tasks = [];
 
 const savedTasks = localStorage.getItem("tasks");
+
 if (savedTasks) {
   tasks = JSON.parse(savedTasks);
   tasks.forEach(function(task) {
