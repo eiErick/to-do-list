@@ -10,7 +10,6 @@
 body {
     height: 100vh;
     width: 100%;
-    /*background-image: linear-gradient(to right, #2C1C4B, #0e0e0e);*/
     background-color: #1A1A1A;
     color: white;
     display: flex;
@@ -53,18 +52,22 @@ button#add{
     border-radius: 4px;
 }
 
-#taskList {
-    margin-left: 20px;
-}
-
 ul {
     list-style-type: none;
 }
 
 ul input{
     margin-right: 10px;
+    margin-left: 20px;
+
 }
 
 li {
     margin-bottom: 8px;
+}
+
+.arrow {
+    position: absolute;
+    margin-left: .5rem;
+    cursor: pointer;
 }

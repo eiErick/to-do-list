@@ -18,7 +18,7 @@ Este é um site de To-do list ou lista de afazeres feito para você amazenar tar
 <br>
 
 <p align="center">
-  <img alt="projeto DevLinks" src=".img/preview.png" width="100%">
+  <img alt="projeto DevLinks" src="img/preview.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
