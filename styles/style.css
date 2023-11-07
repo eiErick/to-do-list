@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+:root {
+    --bg-color: rgb(36, 36, 36);
+    --contorno-li-color: rgb(57, 57, 57);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +15,7 @@
 body {
     height: 100vh;
     width: 100%;
-    background-color: #1A1A1A;
+    background-color: var(--bg-color);
     color: white;
     display: flex;
     justify-content: center;
@@ -59,10 +64,18 @@ ul {
 ul input{
     margin-right: 10px;
     margin-left: 20px;
-
 }
 
 li {
+    margin-bottom: 8px;
+    margin-right: -10px;
+    background-color: var(--contorno-li-color);
+    padding: .0rem;
+    padding: 6px 10px 10px 10px;
+    border-radius: .4rem;
+}
+
+.text-task-completed {
     margin-bottom: 8px;
 }
 
