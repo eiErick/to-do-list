@@ -69,7 +69,6 @@ const taskInput = document.querySelector("#taskInput");
 });
 
 function addTaskToList(task, completed) {
-  console.log(task, completed);
   const listItem = document.createElement("li");
   const label = document.createElement("label");
   const checkbox = document.createElement("input");
@@ -80,8 +79,6 @@ function addTaskToList(task, completed) {
   checkbox.checked = completed; 
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
-  console.log("localStorage");
-
   if (checkbox.checked) {
     checkbox.parentNode.style.textDecoration = "line-through";
   }
