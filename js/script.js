@@ -91,7 +91,7 @@ checkboxs.forEach(checkbox => {
     }
 
     if (checkbox.checked == false) {
-      task.push(task);
+      tasks.push(task);
       task.print(checkbox.parentNode.textContent, taskListCompleted);
       taskListCompleted.removeChild(element.target.parentNode.parentNode);
 
