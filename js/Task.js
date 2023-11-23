@@ -1,7 +1,6 @@
 export class Task {
     constructor(name, date) {
         const img = document.createElement("img");
-        img.setAttribute("src", "../img/trash.svg");
 
         this.name = name;
         if (date != "") {
@@ -21,7 +20,7 @@ export class Task {
         dateText.classList.add("text-date");
         img.classList.add("trash");
 
-        img.setAttribute("src", "../img/trash.svg");
+        img.setAttribute("src", "https://eierick.github.io/to-do-list/img/trash.svg");
         
         label.appendChild(checkbox);
         label.appendChild(document.createTextNode(nameTasks));
