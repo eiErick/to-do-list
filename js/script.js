@@ -107,21 +107,14 @@ document.addEventListener("click", (element) => {
   if(clickedCheckbox) {
     let taskName = element.target.parentNode.childNodes[1].textContent;
 
-    let taskDate;
-    for(let i = 0; i < tasks.length; i++) {
-      if (taskName == tasks[i].name) {
-        taskDate = tasks[i].date;
-      }
-    }
-
     const listName = element.target.parentNode.parentNode.parentNode.attributes.id.textContent;
 
-    let task = new Task(taskName, taskDate);
+    let task = new Task(taskName);
       
     const checked = (element.target.checked);
     if (checked) {
       tasksCompleted.push(task);
-      task.print(taskName, taskListCompleted, taskDate);
+      task.print(taskName, taskListCompleted);
       
       const List = document.querySelector("#"+listName);
       List.removeChild(element.target.parentNode.parentNode);
@@ -136,7 +129,7 @@ document.addEventListener("click", (element) => {
     const unchecked = (!element.target.checked);
     if (unchecked) {
       tasks.push(task);
-      task.print(taskName, taskList, taskDate);
+      task.print(taskName, taskList);
       
       const list = document.querySelector("#"+listName);
       list.removeChild(element.target.parentNode.parentNode);
