@@ -39,7 +39,7 @@ if (savedTasks) {
 
     let newTask = new Task(task.name);
 
-    if (task.date == dateToday) {
+    if (task.date <= dateToday) {
       taskListToday.style.display = "block";
       newTask.print(task.name, taskListToday, task.date);
       return;
@@ -82,6 +82,13 @@ function addTask() {
     taskInput.value = "";
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    if (newTask.date <= dateToday) {
+      taskListToday.style.display = "block";
+      newTask.print(newTask.name, taskListToday, newTask.date);
+      return;
+    }
+    
     newTask.print(newTask.name, taskList, newTask.date);
   }
 }
@@ -96,10 +103,17 @@ taskInput.addEventListener("keydown", function(event) {
   
 document.addEventListener("click", (element) => {
   const clickedCheckbox = (element.target.classList[0] == "checkbox");
-
+  
   if(clickedCheckbox) {
     let taskName = element.target.parentNode.childNodes[1].textContent;
-    let taskDate = element.target.parentNode.childNodes[2].textContent;
+
+    let taskDate;
+    for(let i = 0; i < tasks.length; i++) {
+      if (taskName == tasks[i].name) {
+        taskDate = tasks[i].date;
+      }
+    }
+
     const listName = element.target.parentNode.parentNode.parentNode.attributes.id.textContent;
 
     let task = new Task(taskName, taskDate);

@@ -54,5 +54,16 @@ export class Task {
         if (date != undefined) {
             dateText.innerHTML = " " + date + " ";
         }
+
+        const newDate = new Date();
+        const dateToday = (newDate.getFullYear()+"-"+(newDate.getMonth() + 1)+"-"+newDate.getDate());
+        const listId = list.attributes.id.textContent;
+
+        if (listId == "taskListToday" && date == dateToday) {
+            dateText.innerHTML = "Hoje";
+        } else if (listId == "taskListToday" && date < dateToday) {
+            dateText.classList.add("late");
+            dateText.innerHTML = "Atrasada";
+        }
     }
 }

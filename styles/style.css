@@ -90,6 +90,10 @@ li {
     margin-right: 3.2rem;
 }
 
+.late {
+    color: red;
+}
+
 .trash {
     position: absolute;
     right: 0;
