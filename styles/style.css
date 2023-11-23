@@ -18,43 +18,51 @@ body {
     background-color: var(--bg-color);
     color: white;
     display: flex;
-    justify-content: center;
+    align-items: center;
     font-size: 18px;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    width: 50vw;
+}
+
+main {
+    width: 50vw;
 }
 
 #taskInput {
-    margin-top: 30px;
-    width: 450px;
+    width: 22vw;
     height: 40px;
     border: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
     padding-left: 10px;
-    margin-bottom: 20px;
     font-size: 14px;
+}
+
+#taskDate {
+    min-width: 10vw;
+    text-align: center;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 1rem 0 1rem;
+    font-size: .6em;
 }
 
 button#add{
     border: none;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px;
     height: 40px;
-    margin-left: -6px;
     padding: 10px;
-    background: #007BFF;  
+    background: #3584E4;  
     font-size: 14px;
     cursor: pointer;
     color: white;
-}
-
-#deleteCompletedTasks {
-    border: none;
-    cursor: pointer;
-    background-color: #DC3545;
-    height: 40px;
-    padding: 0 10px 0 10px;
-    position: relative;
-    top: 5px;
-    left: 10px;
-    border-radius: 4px;
 }
 
 ul {
@@ -63,16 +71,37 @@ ul {
 
 ul input{
     margin-right: 10px;
-    margin-left: 20px;
+    margin-left: 1rem;
 }
 
 li {
     margin-bottom: 8px;
-    margin-right: -10px;
     background-color: var(--contorno-li-color);
     padding: .0rem;
     padding: 6px 10px 10px 10px;
     border-radius: .4rem;
+    position: relative;
+}
+
+.text-date {
+    color: lightgreen;
+    position: absolute;
+    right: 0;
+    margin-right: 3.2rem;
+}
+
+.trash {
+    position: absolute;
+    right: 0;
+    top: .3rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    padding: .2rem;
+    border-radius: .2rem;
+}
+
+.trash:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .text-task-completed {

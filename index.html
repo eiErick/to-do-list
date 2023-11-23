@@ -4,20 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="shortcut icon" href="./img/list.svg" type="image/x-icon">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/media-query.css">
   <title>To-Do | List</title>
 </head>
 <body>
-  <main id="container">
+  <header id="header">
     <input type="text" id="taskInput" placeholder="Adicionar nova tarefa">
+    <input type="date" id="taskDate">
     <button id="add" class="btn-add-task">Adicionar</button>
-    <button id="deleteCompletedTasks" class="btn-delete-task"><span class="material-symbols-outlined">delete</span></button>
+  </header>
+  <main id="container">
+
+    <ul style="display: none" id="taskListToday"></ul>
     <ul id="taskList"></ul>
-    <p class="text-task-completed">Tarefas Concluídas <span><img class="arrow" id="arrow" src="img/arrow-dn.svg" alt="Seta"></span></p>
-    <ul style="display: none;" id="taskListCompleted"></ul>
+    
+    <p class="text-task-completed"><span class="quantity-completed-tasks"></span> <span">Tarefas Concluídas</span><span><img class="arrow" id="arrow" src="img/arrow-dn.svg" alt="Seta"></span></p>
+    <ul style="display: none" id="taskListCompleted"></ul>
+
   </main>
 </body>
 </html>
