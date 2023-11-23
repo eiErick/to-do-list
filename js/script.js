@@ -71,6 +71,10 @@ function addTask() {
     }
   });
 
+  if (task == "") {
+    alert("O nome da tarefa não pode estar vazio!");
+  }
+
   if (task !== "" && !itemExistente) {
     const date = inputDate.value;
     let newTask = new Task(task, date);
@@ -130,7 +134,7 @@ document.addEventListener("click", (element) => {
       }  
     }
 
-    PrintQuantityCompletedTasks()
+    PrintQuantityCompletedTasks();
     localStorage.setItem("tasks", JSON.stringify(tasks));
     localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
   }
@@ -158,7 +162,7 @@ document.addEventListener("click", (element) => {
       }
     }
 
-    PrintQuantityCompletedTasks()
+    PrintQuantityCompletedTasks();
     localStorage.setItem("tasks", JSON.stringify(tasks));
     localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
   }
@@ -183,7 +187,7 @@ function resizeWindow() {
     const taskInput = document.querySelector("#taskInput");
 
     btnAddTask.innerHTML = "+";
-    taskInput.attributes[2].textContent = "Tarefa"
+    taskInput.attributes[2].textContent = "Tarefa";
   }
 }
 
@@ -197,6 +201,6 @@ function PrintQuantityCompletedTasks() {
   if (tasksCompleted.length == 1) {
     quantityCompletedTasks.parentNode.childNodes[2].childNodes[0].textContent = "Tarefa Concluída";
   } else {
-    quantityCompletedTasks.parentNode.childNodes[2].childNodes[0].textContent = "Tarefas Concluídas"
+    quantityCompletedTasks.parentNode.childNodes[2].childNodes[0].textContent = "Tarefas Concluídas";
   }
 }

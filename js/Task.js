@@ -4,9 +4,9 @@ export class Task {
 
         this.name = name;
         if (date != "") {
-            this.date = date
+            this.date = date;
         }
-        this.trash = img
+        this.trash = img;
     }
     
     print (nameTasks, list, date) {
@@ -29,7 +29,7 @@ export class Task {
 
         checkbox.type = "checkbox";
         
-        let idList = list.attributes.id.textContent
+        let idList = list.attributes.id.textContent;
         
         if (idList == "taskListCompleted") {
             if (!checkbox.checked) {
@@ -52,7 +52,7 @@ export class Task {
         }
 
         if (date != undefined) {
-            dateText.innerHTML = " " + date + " "
+            dateText.innerHTML = " " + date + " ";
         }
     }
 }
