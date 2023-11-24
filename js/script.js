@@ -1,5 +1,6 @@
 import { Task } from "./Task.js";
 import { printSettings } from "./settings.js";
+import { setLocalStorage } from "./setLocalStorage.js";
 
 const taskListToday = document.querySelector("#taskListToday");
 const taskList = document.querySelector("#taskList");
@@ -33,8 +34,8 @@ deleteTtasksCompletedBtn.addEventListener("click", deleteCompletedTasks)
 printSettings()
 resizeWindow();
 
-let tasks = [];
-let tasksCompleted = [];
+export let tasks = [];
+export let tasksCompleted = [];
 
 const savedTasks = localStorage.getItem("tasks");
 const savedTasksCompleted = localStorage.getItem("tasksCompleted");
@@ -72,7 +73,7 @@ function addTask() {
 
   tasks.forEach(ItemTask => {
     if (ItemTask.name.toUpperCase() == task.toUpperCase()) {
-      alert("Item já existente!");
+      alert(`O item, ${ItemTask.name}, já existente!`);
       itemExistente = true;
     }
   });
@@ -87,7 +88,7 @@ function addTask() {
     tasks.push(newTask);
     taskInput.value = "";
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    setLocalStorage(tasks);
 
     if (newTask.date <= dateToday) {
       taskListToday.style.display = "block";
@@ -148,8 +149,7 @@ document.addEventListener("click", (element) => {
     }
 
     PrintQuantityCompletedTasks();
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
+    setLocalStorage(tasks, tasksCompleted);
   }
 });
 
@@ -176,15 +176,14 @@ document.addEventListener("click", (element) => {
     }
 
     PrintQuantityCompletedTasks();
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
+    setLocalStorage(tasks, tasksCompleted);
   }
 });
 
 function deleteCompletedTasks() {
   tasksCompleted = [];
   taskListCompleted.innerHTML = "";
-  localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
+  setLocalStorage(tasksCompleted);
   PrintQuantityCompletedTasks();
   
   if (arrow.attributes["src"].textContent == "img/arrow-up.svg") {
