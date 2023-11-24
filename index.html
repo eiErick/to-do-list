@@ -10,13 +10,13 @@
   <title>To-Do | List</title>
 </head>
 <body>
-  <header id="header">
+  <header id="header" class="header">
     <input type="text" id="taskInput" placeholder="Adicionar nova tarefa">
     <input type="date" id="taskDate">
     <button id="add" class="btn-add-task">Adicionar</button>
     <button class="settings-btn"><img src="img/settings.svg" alt="settings"></button>   
   </header>
-  <main id="container">
+  <main id="container" class="main">
     
     <ul style="display: none" id="taskListToday"></ul>
     <ul id="taskList"></ul>
@@ -27,6 +27,10 @@
   </main>
 
   <div class="settings-menu">
+    <div class="header-settings-menu" id="header-settings-menu">
+      <p class="text-header-settings-menu">Configurações</p>
+      <span id="setting-menu-closure-button" class="setting-menu-closure-button"><img src="img/close.svg" alt=""></span>
+    </div>
     <div>
       <button id="data-download-btn" class="settings-menu-btn">Baixar Dados</button>
       <button style="color: red;" id="delete-all-tasks-completed-btn" class="settings-menu-btn">Deletar todas as tarefas concluídas</button>

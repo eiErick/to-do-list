@@ -14,6 +14,10 @@
     box-sizing: border-box;
 }
 
+.blur {
+    filter: blur( 20px );
+}
+
 body {
     height: 100vh;
     width: 100%;
@@ -26,6 +30,7 @@ body {
 }
 
 header {
+    transition: .2s;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -34,6 +39,7 @@ header {
 }
 
 main {
+    transition: .2s;
     width: var(--width-default);
 }
 
@@ -85,8 +91,8 @@ button#add {
     color: black;
     border-radius: 5px;
     position: absolute;
-    width: 30vw;
-    padding: 1rem;
+    width: 35vw;
+    padding: 0 1rem 1rem;
     box-shadow: 1px 1px solid black;
     margin-top: 0.3rem;
     background: var(--contorno-li-color);
@@ -100,6 +106,30 @@ button#add {
 .show {
     visibility: visible;
     opacity: 1;
+}
+
+.header-settings-menu {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    margin-top: .5rem;
+}
+
+.text-header-settings-menu {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+}
+
+.setting-menu-closure-button {
+    position: absolute;
+    margin-right: 1rem;
+    right: 0;
+    cursor: pointer;
+    width: 2rem;
+    height: 33px;
+    border-radius: 5px;
+    margin-top: .2rem ;
 }
 
 .settings-menu-btn {

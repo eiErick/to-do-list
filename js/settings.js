@@ -1,3 +1,6 @@
+const main = document.querySelector("#container");
+const header = document.querySelector("#header");
+
 const settingsBtn = document.querySelector(".settings-btn");
 const settingsMenu = document.querySelector(".settings-menu");
 
@@ -9,15 +12,22 @@ export function printSettings() {
   settingsBtn.addEventListener("click", (element) => {
     element.stopPropagation();
     toggleDropdownSettings();
+    toggleClassAddBlur();
   });
   
   const toggleDropdownSettings = function () {
     settingsMenu.classList.toggle("show");
   }
+
+  const toggleClassAddBlur = function () {
+    main.classList.toggle("blur");
+    header.classList.toggle("blur");
+  }
   
   document.documentElement.addEventListener("click", function () {
     if (settingsMenu.classList.contains("show")) {
       toggleDropdownSettings();
+      toggleClassAddBlur();
     }
   });  
 }
@@ -56,6 +66,5 @@ function dataDownloader() {
   
   linkDownload.href = window.URL.createObjectURL(blobTasks);
   
-  console.log(linkDownload);
   linkDownload.click();
 }
