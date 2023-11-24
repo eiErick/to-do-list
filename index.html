@@ -32,7 +32,9 @@
       <span id="setting-menu-closure-button" class="setting-menu-closure-button"><img src="img/close.svg" alt=""></span>
     </div>
     <div>
-      <button id="data-download-btn" class="settings-menu-btn">Baixar Dados</button>
+      <label for="data-import-btn" id="settings-menu-btn-label"><p id="settings-menu-btn-p" class="settings-menu-btn">Importar Dados</p></label>
+      <input type="file" name="input-file" id="data-import-btn" class="settings-menu-btn" accept=".json" >
+      <button id="data-download-btn" class="settings-menu-btn">Exportar Dados</button>
       <button style="color: red;" id="delete-all-tasks-completed-btn" class="settings-menu-btn">Deletar todas as tarefas concluídas</button>
     </div>
   </div>

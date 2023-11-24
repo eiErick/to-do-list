@@ -1,3 +1,7 @@
+import { setLocalStorage } from "./setLocalStorage.js";
+import { tasks } from "./script.js";
+import { tasksCompleted } from "./script.js";
+
 const main = document.querySelector("#container");
 const header = document.querySelector("#header");
 
@@ -5,6 +9,45 @@ const settingsBtn = document.querySelector(".settings-btn");
 const settingsMenu = document.querySelector(".settings-menu");
 
 const dataDownloadBtn = document.querySelector("#data-download-btn");
+
+let jsonData;
+
+document.querySelector("#data-import-btn").addEventListener("change", function (element) {
+  const file = element.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (content) {
+        try {
+            const getterData = JSON.parse(content.target.result);
+            jsonData = getterData;
+        } catch (error) {
+            console.error("Erro ao analisar o arquivo JSON:", error);
+            alert("Erro ao analisar o arquivo JSON!");
+        }
+
+        if (jsonData != undefined) {
+          let tasksData = tasks;
+          let tasksCompletedData = tasksCompleted;
+
+          jsonData.forEach(element => {
+            if (element.status == "completed") {
+              delete element.status;
+              tasksCompletedData.push(element);
+            } else {
+              tasksData.push(element);
+            }
+          });
+
+          setLocalStorage(tasksData, tasksCompletedData);
+          location.reload()
+        }
+    };
+
+    reader.readAsText(file);
+  }    
+});
 
 dataDownloadBtn.addEventListener("click", dataDownloader)
 
@@ -50,19 +93,22 @@ function dataDownloader() {
   let data = [];
 
   tasks.forEach(element => {
-    const jsonString = JSON.stringify({ name: element.name, date: element.date });
-    data.push(jsonString);
+    // delete element.trash;
+    data.push(element);
   });
 
   tasksCompleted.forEach(element => {
-    const jsonString = JSON.stringify({ name: element.name, status: "completed"});
-    data.push(jsonString);
+    // delete element.trash;
+    element.status = "completed";
+    data.push(element);
   });
+
+  const jsonString = JSON.stringify(data)
 
   const linkDownload = document.createElement('a');
   linkDownload.download = 'dados.json';
   
-  const blobTasks = new Blob([data], { type: 'application/json' });
+  const blobTasks = new Blob([jsonString], { type: 'application/json' });
   
   linkDownload.href = window.URL.createObjectURL(blobTasks);
   

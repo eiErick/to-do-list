@@ -148,10 +148,15 @@ button#add {
     background-color: white;
     cursor: pointer;
     font-weight: 700;
+    text-align: center;
 }
 
 .settings-menu-btn:hover {
     background-color: rgb(220, 220, 220);
+}
+
+#data-import-btn {
+    display: none;
 }
 
 ul {
