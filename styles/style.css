@@ -122,14 +122,17 @@ button#add {
 }
 
 .setting-menu-closure-button {
+    text-align: center;
+    background-color: var(--contorno-li-color-hover);
     position: absolute;
     margin-right: 1rem;
     right: 0;
     cursor: pointer;
     width: 2rem;
-    height: 33px;
-    border-radius: 5px;
-    margin-top: .2rem ;
+    padding-top: .2rem;
+    /* height: 30px; */
+    border-radius: 50%;
+    margin-top: .05rem ;
 }
 
 .settings-menu-btn {
