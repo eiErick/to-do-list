@@ -2,7 +2,9 @@
 
 :root {
     --bg-color: rgb(36, 36, 36);
-    --contorno-li-color: rgb(57, 57, 57);
+    --contorno-li-color: #3F3F3F;
+    --contorno-li-color-hover: #4F4F4F;
+    --width-default: 50vw;
 }
 
 * {
@@ -28,11 +30,11 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 5rem;
-    width: 50vw;
+    width: var(--width-default);
 }
 
 main {
-    width: 50vw;
+    width: var(--width-default);
 }
 
 #taskInput {
@@ -54,7 +56,7 @@ main {
     font-size: .6em;
 }
 
-button#add{
+button#add {
     border: none;
     border-radius: 5px;
     height: 40px;
@@ -63,6 +65,55 @@ button#add{
     font-size: 14px;
     cursor: pointer;
     color: white;
+}
+
+.settings-btn {
+    transition: .2s;
+    border: none;
+    width: 3rem;
+    border-radius: 5px;
+    padding: 10px;
+    background: var(--contorno-li-color);  
+    cursor: pointer;
+}
+
+.settings-btn:hover {
+    background: var(--contorno-li-color-hover);
+}
+
+.settings-menu {
+    color: black;
+    border-radius: 5px;
+    position: absolute;
+    width: 30vw;
+    padding: 1rem;
+    box-shadow: 1px 1px solid black;
+    margin-top: 0.3rem;
+    background: var(--contorno-li-color);
+    right: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
+    transform: translateX(50%); 
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.settings-menu-btn {
+    transition: .2s;
+    border: none;
+    width: 100%;
+    padding: .5rem;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
+}
+
+.settings-menu-btn:hover {
+    background-color: rgb(220, 220, 220);
 }
 
 ul {
@@ -95,6 +146,7 @@ li {
 }
 
 .trash {
+    transition: .2s;
     position: absolute;
     right: 0;
     top: .3rem;
@@ -105,7 +157,7 @@ li {
 }
 
 .trash:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--contorno-li-color-hover)
 }
 
 .text-task-completed {

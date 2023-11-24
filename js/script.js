@@ -1,4 +1,5 @@
 import { Task } from "./Task.js";
+import { printSettings } from "./settings.js";
 
 const taskListToday = document.querySelector("#taskListToday");
 const taskList = document.querySelector("#taskList");
@@ -6,6 +7,8 @@ const taskListCompleted = document.querySelector("#taskListCompleted");
 
 const inputDate = document.querySelector("#taskDate");
 const btnAddTask = document.querySelector(".btn-add-task");
+
+const deleteTtasksCompletedBtn = document.querySelector("#delete-all-tasks-completed-btn");
 
 const arrow = document.querySelector(".arrow");
 const quantityCompletedTasks = document.querySelector(".quantity-completed-tasks");
@@ -25,6 +28,9 @@ arrow.addEventListener("click", () => {
   }
 })
 
+deleteTtasksCompletedBtn.addEventListener("click", deleteCompletedTasks)
+
+printSettings()
 resizeWindow();
 
 let tasks = [];
@@ -175,17 +181,17 @@ document.addEventListener("click", (element) => {
   }
 });
 
-// function deleteCompletedTasks() {
-//   tasksCompleted = [];
-//   taskListCompleted.innerHTML = "";
-//   localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
-//   PrintQuantityCompletedTasks();
+function deleteCompletedTasks() {
+  tasksCompleted = [];
+  taskListCompleted.innerHTML = "";
+  localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
+  PrintQuantityCompletedTasks();
   
-//   if (arrow.attributes["src"].textContent == "img/arrow-up.svg") {
-//     arrow.setAttribute("src", "img/arrow-dn.svg");
-//     taskListCompleted.style.display = "none";
-//   }
-// }
+  if (arrow.attributes["src"].textContent == "img/arrow-up.svg") {
+    arrow.setAttribute("src", "img/arrow-dn.svg");
+    taskListCompleted.style.display = "none";
+  }
+}
 
 function resizeWindow() {
   const widthWindow = window.innerWidth;

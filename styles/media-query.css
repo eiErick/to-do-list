@@ -12,6 +12,10 @@
     #taskInput{
         width: 30vw;
     }
+
+    .settings-menu {
+        width: 60vw;
+    }
 }
 
 @media screen and (max-width: 500px){
@@ -43,6 +47,14 @@
         height: 4rem;
         min-width: 15vw;
         font-size: 18px;
+    }
+
+    .settings-btn {
+        height: 4rem;
+    }
+
+    .settings-menu {
+        width: 90vw;
     }
 
     label {

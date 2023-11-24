@@ -14,18 +14,27 @@
     <input type="text" id="taskInput" placeholder="Adicionar nova tarefa">
     <input type="date" id="taskDate">
     <button id="add" class="btn-add-task">Adicionar</button>
+    <button class="settings-btn"><img src="img/settings.svg" alt="settings"></button>   
   </header>
   <main id="container">
-
+    
     <ul style="display: none" id="taskListToday"></ul>
     <ul id="taskList"></ul>
     
     <p class="text-task-completed"><span class="quantity-completed-tasks"></span> <span">Tarefas Concluídas</span><span><img class="arrow" id="arrow" src="img/arrow-dn.svg" alt="Seta"></span></p>
     <ul style="display: none" id="taskListCompleted"></ul>
-
+    
   </main>
+
+  <div class="settings-menu">
+    <div>
+      <button id="data-download-btn" class="settings-menu-btn">Baixar Dados</button>
+      <button style="color: red;" id="delete-all-tasks-completed-btn" class="settings-menu-btn">Deletar todas as tarefas concluídas</button>
+    </div>
+  </div>
+
 </body>
 </html>
-  <script src="js/script.js" type="module"></script>
+<script src="js/script.js" type="module"></script>
 </body>
 </html>
