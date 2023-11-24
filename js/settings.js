@@ -7,6 +7,7 @@ const header = document.querySelector("#header");
 
 const settingsBtn = document.querySelector(".settings-btn");
 const settingsMenu = document.querySelector(".settings-menu");
+const deleteAllTasksBtn = document.querySelector("#delete-all-tasks-btn");
 
 const dataDownloadBtn = document.querySelector("#data-download-btn");
 
@@ -49,7 +50,8 @@ document.querySelector("#data-import-btn").addEventListener("change", function (
   }    
 });
 
-dataDownloadBtn.addEventListener("click", dataDownloader)
+dataDownloadBtn.addEventListener("click", dataDownloader);
+deleteAllTasksBtn.addEventListener("click", removeAllTaksInMemory)
 
 export function printSettings() {
   settingsBtn.addEventListener("click", (element) => {
@@ -113,4 +115,12 @@ function dataDownloader() {
   linkDownload.href = window.URL.createObjectURL(blobTasks);
   
   linkDownload.click();
+}
+
+function removeAllTaksInMemory() {
+  const windowComfirm = confirm("[ALERTA] Isso DELETARA todos as TAREFAS armazenada deste SITE! Tem certeza deseja quer continuar?");
+  if (windowComfirm) {
+    localStorage.clear();
+    location.reload();
+  }
 }
