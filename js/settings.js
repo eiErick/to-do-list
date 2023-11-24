@@ -7,6 +7,7 @@ const header = document.querySelector("#header");
 
 const settingsBtn = document.querySelector(".settings-btn");
 const settingsMenu = document.querySelector(".settings-menu");
+const deleteTtasksCompletedBtn = document.querySelector("#delete-all-tasks-completed-btn");
 const deleteAllTasksBtn = document.querySelector("#delete-all-tasks-btn");
 
 const dataDownloadBtn = document.querySelector("#data-download-btn");
@@ -51,7 +52,10 @@ document.querySelector("#data-import-btn").addEventListener("change", function (
 });
 
 dataDownloadBtn.addEventListener("click", dataDownloader);
-deleteAllTasksBtn.addEventListener("click", removeAllTaksInMemory)
+deleteTtasksCompletedBtn.addEventListener("click", deleteCompletedTasks);
+deleteAllTasksBtn.addEventListener("click", removeAllTaksInMemory);
+
+printSettings();
 
 export function printSettings() {
   settingsBtn.addEventListener("click", (element) => {
@@ -115,6 +119,12 @@ function dataDownloader() {
   linkDownload.href = window.URL.createObjectURL(blobTasks);
   
   linkDownload.click();
+}
+
+function deleteCompletedTasks() {
+  const empty = [];
+  setLocalStorage(null, empty);
+  location.reload();
 }
 
 function removeAllTaksInMemory() {

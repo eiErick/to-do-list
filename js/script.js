@@ -1,5 +1,4 @@
 import { Task } from "./Task.js";
-import { printSettings } from "./settings.js";
 import { setLocalStorage } from "./setLocalStorage.js";
 
 const taskListToday = document.querySelector("#taskListToday");
@@ -8,8 +7,6 @@ const taskListCompleted = document.querySelector("#taskListCompleted");
 
 const inputDate = document.querySelector("#taskDate");
 const btnAddTask = document.querySelector(".btn-add-task");
-
-const deleteTtasksCompletedBtn = document.querySelector("#delete-all-tasks-completed-btn");
 
 const arrow = document.querySelector(".arrow");
 const quantityCompletedTasks = document.querySelector(".quantity-completed-tasks");
@@ -29,9 +26,6 @@ arrow.addEventListener("click", () => {
   }
 })
 
-deleteTtasksCompletedBtn.addEventListener("click", deleteCompletedTasks)
-
-printSettings()
 resizeWindow();
 
 export let tasks = [];
@@ -179,18 +173,6 @@ document.addEventListener("click", (element) => {
     setLocalStorage(tasks, tasksCompleted);
   }
 });
-
-function deleteCompletedTasks() {
-  tasksCompleted = [];
-  taskListCompleted.innerHTML = "";
-  setLocalStorage(tasksCompleted);
-  PrintQuantityCompletedTasks();
-  
-  if (arrow.attributes["src"].textContent == "img/arrow-up.svg") {
-    arrow.setAttribute("src", "img/arrow-dn.svg");
-    taskListCompleted.style.display = "none";
-  }
-}
 
 function resizeWindow() {
   const widthWindow = window.innerWidth;
