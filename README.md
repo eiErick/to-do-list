@@ -35,7 +35,7 @@ O To-do list é uma lista de tarefas online.
 
 ## :memo: Licença
 
-Esse projeto está sob a licença MIT.
+Esse projeto está sob a licença GNU.
 
 ---
 
