@@ -26,6 +26,10 @@ arrow.addEventListener("click", () => {
   }
 })
 
+document.querySelector(".pomodoro-btn").addEventListener("click", () => {
+  location.href = "pomodoro.html";
+});
+
 resizeWindow();
 
 export let tasks = [];
@@ -177,7 +181,7 @@ document.addEventListener("click", (element) => {
 function resizeWindow() {
   const widthWindow = window.innerWidth;
   
-  if (widthWindow <= 500) {
+  if (widthWindow <= 620) {
     const taskInput = document.querySelector("#taskInput");
 
     btnAddTask.innerHTML = "+";

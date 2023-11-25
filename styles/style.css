@@ -6,6 +6,8 @@
     --bg-color: rgb(36, 36, 36);
     --contorno-li-color: #3F3F3F;
     --contorno-li-color-hover: #4F4F4F;
+    --color-blue: #3584e4;
+    --color-blue-hover: #438DE6;
     --width-default: 50vw;
     --border-radius: 10px;
 }
@@ -47,6 +49,20 @@ main {
     width: var(--width-default);
 }
 
+.pomodoro-btn {
+    transition: .2s;
+    border: none;
+    width: 3rem;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    background: var(--color-blue);  
+    cursor: pointer;
+}
+
+.pomodoro-btn:hover {
+    background: var(--color-blue-hover);
+}
+
 #taskInput {
     width: 22vw;
     height: 40px;
@@ -71,10 +87,14 @@ button#add {
     border-radius: var(--border-radius);
     height: 40px;
     padding: 10px;
-    background: #3584E4;  
+    background: var(--color-blue);  
     font-size: 14px;
     cursor: pointer;
     color: white;
+}
+
+button#add:hover {
+    background-color: var(--color-blue-hover);
 }
 
 .settings-btn {

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/pomodoro.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/pomodoro.css">
+    <link rel="stylesheet" href="styles/pomodoro-query.css">
+    <title>To-Do | Pomodoro </title>
+</head>
+<body>
+    <main>
+        <div class="container-pomodoro">
+            <div class="header-container-pomodoro">
+                <div class="header-container-pomodoro_btns">
+                    <button class="list-btn"><img src="img/list.svg" alt="ícone de lista"></button>
+                </div>
+                <div class="header-container-pomodoro_status">
+                    <p class="text-focus text-header selected" id="text-focus">Foco</p>
+                    <p class="text-short-rest text-header" id="text-short-rest">Descanso curto</p>
+                    <p class="text-long-rest text-header" id="text-long-rest">Descanso longo</p>
+                </div>
+            </div>
+            <div class="timer" id="timer">25:00</div>
+            <div class="container-pomodoro_btn-pomodoro">
+                <button class="start-pause-pomodoro-btn" id="start-pause-pomodoro-btn">Começar</button>
+            </div>
+        </div>
+    </main>
+    <script src="js/pomodoro.js"></script>
+</body>
+</html>

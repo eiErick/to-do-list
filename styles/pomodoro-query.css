@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 500px){
+    .container-pomodoro {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    #timer {
+        font-size: 4em;
+    }
+
+    .text-header {
+        font-size: .8em;
+    }
+}
