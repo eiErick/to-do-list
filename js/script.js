@@ -1,5 +1,6 @@
 import { Task } from "./Task.js";
 import { setLocalStorage } from "./setLocalStorage.js";
+import { notify } from "./notification.js";
 
 const taskListToday = document.querySelector("#taskListToday");
 const taskList = document.querySelector("#taskList");
@@ -201,4 +202,16 @@ function PrintQuantityCompletedTasks() {
   } else {
     quantityCompletedTasks.parentNode.childNodes[2].childNodes[0].textContent = "Tarefas Concluídas";
   }
+}
+
+callNotify();
+
+function callNotify() {
+  let notificationsItems = [];
+  
+  taskListToday.childNodes.forEach(element => {
+    notificationsItems.push(element.childNodes[0].childNodes[1].textContent);
+  });
+
+  notify(notificationsItems)
 }

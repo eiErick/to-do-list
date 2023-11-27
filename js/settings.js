@@ -7,10 +7,11 @@ const header = document.querySelector("#header");
 
 const settingsBtn = document.querySelector(".settings-btn");
 const settingsMenu = document.querySelector(".settings-menu");
+
+const enbleDisableNotificationBtn = document.querySelector("#enble-disable-notification-btn");
+const dataDownloadBtn = document.querySelector("#data-download-btn");
 const deleteTtasksCompletedBtn = document.querySelector("#delete-all-tasks-completed-btn");
 const deleteAllTasksBtn = document.querySelector("#delete-all-tasks-btn");
-
-const dataDownloadBtn = document.querySelector("#data-download-btn");
 
 let jsonData;
 
@@ -51,9 +52,16 @@ document.querySelector("#data-import-btn").addEventListener("change", function (
   }    
 });
 
+enbleDisableNotificationBtn.addEventListener("click", enbleDisableNotification);
 dataDownloadBtn.addEventListener("click", dataDownloader);
 deleteTtasksCompletedBtn.addEventListener("click", deleteCompletedTasks);
 deleteAllTasksBtn.addEventListener("click", removeAllTaksInMemory);
+
+const notificationIsEnable = localStorage.getItem("notification");
+
+if (notificationIsEnable == "true") {
+  enbleDisableNotificationBtn.innerHTML = "Desativar Notificações";
+}
 
 printSettings();
 
@@ -79,6 +87,17 @@ export function printSettings() {
       toggleClassAddBlur();
     }
   });  
+}
+
+function enbleDisableNotification() {
+  if (enbleDisableNotificationBtn.innerHTML == "Ativar Notificações") {
+    enbleDisableNotificationBtn.innerHTML = "Desativar Notificações";
+    localStorage.setItem("notification", "true");
+    location.reload();
+  } else if (enbleDisableNotificationBtn.innerHTML == "Desativar Notificações") {
+    enbleDisableNotificationBtn.innerHTML = "Ativar Notificações";
+    localStorage.setItem("notification", "false");
+  }
 }
 
 function dataDownloader() {
