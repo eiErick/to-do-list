@@ -2,6 +2,9 @@ import { Task } from "./Task.js";
 import { setLocalStorage } from "./setLocalStorage.js";
 import { notify } from "./notification.js";
 
+const main = document.querySelector("#container");
+const header = document.querySelector("#header");
+
 const taskListToday = document.querySelector("#taskListToday");
 const taskList = document.querySelector("#taskList");
 const taskListCompleted = document.querySelector("#taskListCompleted");
@@ -109,8 +112,9 @@ taskInput.addEventListener("keydown", function(event) {
   
 document.addEventListener("click", (element) => {
   const clickedCheckbox = (element.target.classList[0] == "checkbox");
-  
-  if(clickedCheckbox) {
+  const clickedEditTaskName = (element.target.classList[2] == "edit-task-name");
+
+  if(clickedCheckbox && !clickedEditTaskName) {
     let taskName = element.target.parentNode.childNodes[1].textContent;
 
     const listName = element.target.parentNode.parentNode.parentNode.attributes.id.textContent;
@@ -159,25 +163,119 @@ document.addEventListener("click", (element) => {
     const taskName = element.target.parentNode.childNodes[1].textContent;
     const listName = element.target.parentNode.parentNode.parentNode.attributes.id.textContent;
 
-    const list = document.querySelector("#"+listName);
-    list.removeChild(element.target.parentNode.parentNode);
-    
-    for(let i = 0; i < tasksCompleted.length; i++) {
-      if (taskName == tasksCompleted[i].name) {
-        tasksCompleted.splice(i, 1);
-      }
-    }
-    
-    for(let i = 0; i < tasks.length; i++) {
-      if (taskName == tasks[i].name) {
-        tasks.splice(i, 1);
-      }
-    }
-
-    PrintQuantityCompletedTasks();
-    setLocalStorage(tasks, tasksCompleted);
+    deleteTask(taskName, listName);
   }
 });
+
+document.addEventListener("click", (element) => {
+  const clickedEditTaskName = element.target.classList[0] == "edit-task-name";
+  const clickedCheckbox = (element.target.parentNode.childNodes[0]);
+  
+  if (clickedEditTaskName) {
+    const taskName = element.target.parentNode.childNodes[0].childNodes[1].textContent;
+    const taskDate = element.target.parentNode.childNodes[1].textContent;
+
+    const box = document.createElement("div");
+    const text = document.createElement("p");
+    const inputTextName = document.createElement("input");
+    const inputDate = document.createElement("input");
+    const divButtons = document.createElement("div");
+    const btnCancel = document.createElement("button");
+    const btnComfirm = document.createElement("button");
+
+    box.classList.add("change-box-name-tasks");
+
+    text.innerHTML = "Edição de Tarefa";
+    btnCancel.innerHTML = "Cancelar";
+    btnComfirm.innerHTML = "Comfirmar";
+
+    inputDate.type = "date";
+
+    inputTextName.value = taskName;
+    inputDate.value = taskDate.trim();
+
+    divButtons.appendChild(btnCancel);
+    divButtons.appendChild(btnComfirm);
+
+    box.appendChild(text);
+    box.appendChild(inputTextName);
+    box.appendChild(inputDate);
+    box.appendChild(divButtons);
+    document.body.appendChild(box);
+
+    btnComfirm.addEventListener("click", () => {
+      const listName = element.target.parentNode.parentNode.attributes.id.textContent;
+
+      deleteTask(taskName, listName);
+      let task = capitalizeFirstLetter(inputTextName.value);
+      let itemExistente = false;
+    
+      tasks.forEach(ItemTask => {
+        if (ItemTask.name.toUpperCase() == task.toUpperCase()) {
+          alert(`O item, ${ItemTask.name}, já existente!`);
+          itemExistente = true;
+        }
+      });
+    
+      if (task == "") {
+        alert("O nome da tarefa não pode estar vazio!");
+      }
+    
+      if (task !== "" && !itemExistente) {
+        const date = inputDate.value;
+        let newTask = new Task(task, date);
+        tasks.push(newTask);
+        inputTextName.value = "";
+    
+        setLocalStorage(tasks);
+    
+        if (newTask.date <= dateToday) {
+          taskListToday.style.display = "block";
+          newTask.print(newTask.name, taskListToday, newTask.date);
+          return;
+        }
+        
+        newTask.print(newTask.name, taskList, newTask.date);
+        toggleClassAddBlur();
+        box.remove();
+      }
+    });
+
+    btnCancel.addEventListener("click", () => {
+      toggleClassAddBlur();
+      box.remove();
+    });
+
+    toggleClassAddBlur();
+  }
+
+  clickedCheckbox.checked = false;
+});
+
+function deleteTask(taskName, listName) {
+  const list = document.querySelector("#"+listName);
+
+  list.childNodes.forEach(element => {
+    if (element.childNodes[0].childNodes[1].textContent == taskName) {
+      element.remove();
+    }
+  });
+  
+  for(let i = 0; i < tasksCompleted.length; i++) {
+    if (taskName == tasksCompleted[i].name) {
+      tasksCompleted.splice(i, 1);
+    }
+  }
+  
+  for(let i = 0; i < tasks.length; i++) {
+    if (taskName == tasks[i].name) {
+      tasks.splice(i, 1);
+    }
+  }
+
+  PrintQuantityCompletedTasks();
+  setLocalStorage(tasks, tasksCompleted);
+}
 
 function resizeWindow() {
   const widthWindow = window.innerWidth;
@@ -204,6 +302,11 @@ function PrintQuantityCompletedTasks() {
   }
 }
 
+function toggleClassAddBlur() {
+  main.classList.toggle("blur");
+  header.classList.toggle("blur");
+}
+
 callNotify();
 
 function callNotify() {
@@ -213,5 +316,5 @@ function callNotify() {
     notificationsItems.push(element.childNodes[0].childNodes[1].textContent);
   });
 
-  notify(notificationsItems)
+  notify(notificationsItems);
 }

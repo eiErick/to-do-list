@@ -1,12 +1,13 @@
 export class Task {
     constructor(name, date) {
-        const img = document.createElement("img");
+        const imgEdit = document.createElement("img");
+        const imgTrash = document.createElement("img");
 
         this.name = name;
         if (date != "") {
             this.date = date;
         }
-        this.trash = img;
+        this.trash = imgTrash;
     }
     
     print (nameTasks, list, date) {
@@ -14,18 +15,24 @@ export class Task {
         const label = document.createElement("label");
         const checkbox = document.createElement("input");
         const dateText = document.createElement("span");
-        const img = document.createElement("img");
+        const imgEdit = document.createElement("img");
+        const imgTrash = document.createElement("img");
 
         checkbox.classList.add("checkbox");
         dateText.classList.add("text-date");
-        img.classList.add("trash");
+        imgEdit.classList.add("edit-task-name");
+        imgTrash.classList.add("trash");
 
-        img.setAttribute("src", "https://eierick.github.io/to-do-list/img/trash.svg");
+        imgTrash.setAttribute("src", "https://eierick.github.io/to-do-list/img/trash.svg");
+        imgEdit.setAttribute("src", "https://eierick.github.io/to-do-list/img/edit.svg");
         
+        listItem.appendChild(label);
+        listItem.appendChild(imgEdit);
+
         label.appendChild(checkbox);
         label.appendChild(document.createTextNode(nameTasks));
         label.appendChild(dateText);
-        label.appendChild(img);
+        label.appendChild(imgTrash);
 
         checkbox.type = "checkbox";
         
@@ -37,7 +44,6 @@ export class Task {
                 checkbox.checked = true;
             }
             
-            listItem.appendChild(label);
             list.appendChild(listItem);
         } 
         
@@ -47,7 +53,6 @@ export class Task {
                 checkbox.checked = true;
             }
             
-            listItem.appendChild(label);
             list.appendChild(listItem);    
         }
 
