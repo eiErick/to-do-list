@@ -1,7 +1,7 @@
 <h1 align="center"> To-do List </h1>
 
 <p align="center">
-Este é um site de To-do list ou lista de afazeres feito para você amazenar tarefas para serem feitas ao longo dos dias, semanas ou dos meses.<br/>
+Este é um site de To-do list ou lista de afazeres, feito para você manter o foco ao longo dos dias sem perder o controle de suas tarefas, além de recursos de produtividade como o Pomodoro<br/>
 </p>
 
 <p align="center">
@@ -31,7 +31,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-O To-do list é uma lista de tarefas online.
+O To-do list é uma lista de tarefas online, que possibilita que você mantenha a organização das suas tarefas com notificaçãoes, agendamento de dia, possibilidade de exportar e importar seus dados para qualquer dispositivo além do recurso de pomodoro para te ajudar a manter o foco por longos periodos de trabalho ou estudos.
+## 📁 Access to the project
+[Veja o projeto final em operação](https://eierick.github.io/calculator).
 
 ## :memo: Licença
 
