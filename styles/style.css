@@ -35,17 +35,14 @@ body {
     flex-direction: column;
 }
 
+/* Header */
+
 header {
     transition: .2s;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 5rem;
-    width: var(--width-default);
-}
-
-main {
-    transition: .2s;
     width: var(--width-default);
 }
 
@@ -111,26 +108,95 @@ button#add:hover {
     background: var(--contorno-li-color-hover);
 }
 
-.settings-menu {
-    color: black;
-    border-radius: var(--border-radius);
-    position: absolute;
-    width: 35vw;
-    padding: 0 1rem 1rem;
-    box-shadow: 1px 1px solid black;
-    margin-top: 0.3rem;
-    background: var(--contorno-li-color);
-    right: 50%;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
-    transform: translateX(50%);
-    font-weight: 700; 
+/* Main */
+
+main {
+    transition: .2s;
+    width: var(--width-default);
 }
 
-.show {
-    visibility: visible;
-    opacity: 1;
+ul {
+    list-style-type: none;
+}
+
+ul input{
+    margin: 0 .4rem 0 .4rem;
+}
+
+li {
+    margin-bottom: 8px;
+    background-color: var(--contorno-li-color);
+    padding: .0rem;
+    padding: 6px 10px 10px 10px;
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.text-date {
+    color: lightgreen;
+    position: absolute;
+    right: 0;
+    margin-right: 5rem;
+}
+
+.late {
+    color: red;
+}
+
+.edit-task-name {
+    transition: .2s;
+    position: absolute;
+    right: 3rem;
+    margin-top: -0.2rem;
+    padding: .4rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.edit-task-name:hover {
+    background-color: var(--contorno-li-color-hover);
+}
+
+.trash {
+    transition: .2s;
+    position: absolute;
+    right: 0;
+    top: .1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    padding: .4rem;
+    border-radius: var(--border-radius);
+}
+
+.trash:hover {
+    background-color: var(--contorno-li-color-hover)
+}
+
+/* Main - Taks Completed */
+
+.text-task-completed {
+    margin-bottom: 8px;
+}
+
+.arrow {
+    position: absolute;
+    margin-left: .5rem;
+    cursor: pointer;
+}
+
+/* Settings */
+
+.setting-menu-closure-button {
+    text-align: center;
+    background-color: var(--contorno-li-color-hover);
+    position: absolute;
+    margin-right: 1rem;
+    right: 0;
+    cursor: pointer;
+    width: 2rem;
+    padding-top: .2rem;
+    border-radius: 50%;
+    margin-top: .05rem ;
 }
 
 .header-settings-menu {
@@ -146,17 +212,21 @@ button#add:hover {
     margin-bottom: 1rem;
 }
 
-.setting-menu-closure-button {
-    text-align: center;
-    background-color: var(--contorno-li-color-hover);
+.settings-menu {
+    color: black;
+    border-radius: var(--border-radius);
     position: absolute;
-    margin-right: 1rem;
-    right: 0;
-    cursor: pointer;
-    width: 2rem;
-    padding-top: .2rem;
-    border-radius: 50%;
-    margin-top: .05rem ;
+    width: 35vw;
+    padding: 0 1rem 1rem;
+    box-shadow: 1px 1px solid black;
+    margin-top: 0.3rem;
+    background: var(--contorno-li-color);
+    right: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
+    transform: translateX(50%);
+    font-weight: 700; 
 }
 
 .settings-menu-btn {
@@ -179,72 +249,12 @@ button#add:hover {
     display: none;
 }
 
-ul {
-    list-style-type: none;
+.show {
+    visibility: visible;
+    opacity: 1;
 }
 
-ul input{
-    margin: 0 .4rem 0 .4rem;
-}
-
-li {
-    margin-bottom: 8px;
-    background-color: var(--contorno-li-color);
-    padding: .0rem;
-    padding: 6px 10px 10px 10px;
-    border-radius: var(--border-radius);
-    position: relative;
-}
-
-.edit-task-name {
-    transition: .2s;
-    position: absolute;
-    right: 3rem;
-    margin-top: -0.2rem;
-    padding: .4rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-}
-
-.edit-task-name:hover {
-    background-color: var(--contorno-li-color-hover);
-}
-
-.text-date {
-    color: lightgreen;
-    position: absolute;
-    right: 0;
-    margin-right: 5rem;
-}
-
-.late {
-    color: red;
-}
-
-.trash {
-    transition: .2s;
-    position: absolute;
-    right: 0;
-    top: .1rem;
-    margin-right: 1rem;
-    cursor: pointer;
-    padding: .4rem;
-    border-radius: var(--border-radius);
-}
-
-.trash:hover {
-    background-color: var(--contorno-li-color-hover)
-}
-
-.text-task-completed {
-    margin-bottom: 8px;
-}
-
-.arrow {
-    position: absolute;
-    margin-left: .5rem;
-    cursor: pointer;
-}
+/* Task Editing Menu */
 
 .change-box-name-tasks {
     display: flex;

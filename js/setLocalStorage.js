@@ -5,6 +5,5 @@ export function setLocalStorage(tasks = null, tasksCompleted = null) {
 
     if (tasksCompleted != null) {
         localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
-        localStorage.setItem("tasksCompleted", JSON.stringify(tasksCompleted));
     }
 }

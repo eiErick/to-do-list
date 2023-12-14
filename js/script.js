@@ -114,7 +114,7 @@ document.addEventListener("click", (element) => {
   const clickedCheckbox = (element.target.classList[0] == "checkbox");
   const clickedEditTaskName = (element.target.classList[2] == "edit-task-name");
 
-  if(clickedCheckbox && !clickedEditTaskName) {
+  if (clickedCheckbox && !clickedEditTaskName) {
     let taskName = element.target.parentNode.childNodes[1].textContent;
 
     const listName = element.target.parentNode.parentNode.parentNode.attributes.id.textContent;
@@ -129,7 +129,7 @@ document.addEventListener("click", (element) => {
       const List = document.querySelector("#"+listName);
       List.removeChild(element.target.parentNode.parentNode);
       
-      for(let i = 0; i < tasks.length; i++) {
+      for (let i = 0; i < tasks.length; i++) {
         if (taskName == tasks[i].name) {
           tasks.splice(i, 1);
         }
@@ -144,7 +144,7 @@ document.addEventListener("click", (element) => {
       const list = document.querySelector("#"+listName);
       list.removeChild(element.target.parentNode.parentNode);
 
-      for(let i = 0; i < tasksCompleted.length; i++) {
+      for (let i = 0; i < tasksCompleted.length; i++) {
         if (taskName == tasksCompleted[i].name) {
           tasksCompleted.splice(i, 1);
         }
@@ -261,13 +261,13 @@ function deleteTask(taskName, listName) {
     }
   });
   
-  for(let i = 0; i < tasksCompleted.length; i++) {
+  for (let i = 0; i < tasksCompleted.length; i++) {
     if (taskName == tasksCompleted[i].name) {
       tasksCompleted.splice(i, 1);
     }
   }
   
-  for(let i = 0; i < tasks.length; i++) {
+  for (let i = 0; i < tasks.length; i++) {
     if (taskName == tasks[i].name) {
       tasks.splice(i, 1);
     }
