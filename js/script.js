@@ -5,6 +5,9 @@ import { notify } from "./notification.js";
 const main = document.querySelector("#container");
 const header = document.querySelector("#header");
 
+const pomodoroBtn = document.querySelector(".pomodoro-btn");
+const homeBtn = document.querySelector(".home-btn");
+
 const taskListToday = document.querySelector("#taskListToday");
 const taskList = document.querySelector("#taskList");
 const taskListCompleted = document.querySelector("#taskListCompleted");
@@ -21,18 +24,22 @@ const date = new Date();
 const dateToday = (date.getFullYear()+"-"+(date.getMonth() + 1)+"-"+date.getDate());
 
 arrow.addEventListener("click", () => {
-  if (arrow.attributes["src"].textContent == "img/arrow-up.svg") {
-    arrow.setAttribute("src", "img/arrow-dn.svg");
+  if (arrow.attributes["src"].textContent == "../img/arrow-up.svg") {
+    arrow.setAttribute("src", "../img/arrow-dn.svg");
     taskListCompleted.style.display = "none"
-  } else if (arrow.attributes["src"].textContent == "img/arrow-dn.svg") {
-    arrow.setAttribute("src", "img/arrow-up.svg");
+  } else if (arrow.attributes["src"].textContent == "../img/arrow-dn.svg") {
+    arrow.setAttribute("src", "../img/arrow-up.svg");
     taskListCompleted.style.display = "block"
   }
 })
 
-document.querySelector(".pomodoro-btn").addEventListener("click", () => {
-  location.href = "pomodoro.html";
+pomodoroBtn.addEventListener("click", () => {
+  location.href = "./pomodoro.html";
 });
+
+homeBtn.addEventListener("click", () => {
+  location.href = "../index.html"
+})
 
 resizeWindow();
 
@@ -280,7 +287,7 @@ function deleteTask(taskName, listName) {
 function resizeWindow() {
   const widthWindow = window.innerWidth;
   
-  if (widthWindow <= 620) {
+  if (widthWindow <= 700) {
     const taskInput = document.querySelector("#taskInput");
 
     btnAddTask.innerHTML = "+";

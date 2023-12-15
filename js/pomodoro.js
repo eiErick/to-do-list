@@ -5,8 +5,15 @@ const textLongRest = document.querySelector("#text-long-rest");
 const timer = document.querySelector("#timer");
 const startPausePomodoroBtn = document.querySelector("#start-pause-pomodoro-btn");
 
-document.querySelector(".list-btn").addEventListener("click", () => {
-    location.href = "index.html";
+const listBtn = document.querySelector(".list-btn");
+const homeBtn = document.querySelector(".home-btn");
+
+listBtn.addEventListener("click", () => {
+    location.href = "to-do-list.html";
+});
+
+homeBtn.addEventListener("click", () => {
+    location.href = "../index.html";
 });
 
 startPausePomodoroBtn.addEventListener("click", () => {
@@ -49,9 +56,10 @@ function countdown() {
 function reset() {
     clearInterval(interval);
     startPausePomodoroBtn.innerHTML = "Começar";
-    loop++
+    loop++;
 
-     if (textFocus.classList[2] == "selected" && loop <= 7) {
+    if (textFocus.classList[2] == "selected" && loop <= 7) {
+        recordFocusTime(25);
         deleteSelectedClass();
         textShortRest.classList.add("selected");
 
@@ -63,7 +71,14 @@ function reset() {
         
         timeSeconds = focusTime;
         return;
+    } else if (textLongRest.classList[2] == "selected" && loop <= 7) {
+        deleteSelectedClass();
+        textFocus.classList.add("selected");
+        
+        timeSeconds = focusTime;
+        return;
     } else if (loop >= 7) {
+        recordFocusTime(25);
         deleteSelectedClass();
         textLongRest.classList.add("selected");
 
@@ -83,4 +98,38 @@ function deleteSelectedClass() {
     textFocus.classList.remove("selected");
     textShortRest.classList.remove("selected");
     textLongRest.classList.remove("selected");
+}
+
+function recordFocusTime(time) {
+    const date = getDate();
+    let emptyList = true;
+
+    let timeFocus = [];
+    const savedTimeFocus = localStorage.getItem("timeFocus");
+
+    if (savedTimeFocus) {
+        timeFocus = JSON.parse(savedTimeFocus);
+    }
+
+    const leghtTimeFocus = timeFocus.length - 1;
+
+    if (timeFocus[leghtTimeFocus] != undefined && timeFocus[leghtTimeFocus].date === date) {
+        timeFocus[leghtTimeFocus].time = Number(timeFocus[leghtTimeFocus].time) + time;
+    } else {
+        timeFocus.push({"time":time, "date":date});
+    }
+
+    if (leghtTimeFocus >= 6) {
+        timeFocus.shift();
+    }
+
+    localStorage.setItem("timeFocus", JSON.stringify(timeFocus));
+}
+
+function getDate() {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return (`${day}/${month}/${year}`);
 }

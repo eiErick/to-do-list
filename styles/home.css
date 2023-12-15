@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+    background-color: var(--contorno-li-color);
+    border-radius: var(--border-radius);
+    margin: 1rem 0 .5rem 0;
+}
+
+.header button {
+    transition: .2s;
+    width: 3rem;
+    background-color: var(--color-blue);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: .6rem;
+    cursor: pointer;
+}
+
+.header button:hover {
+    background-color: var(--color-blue-hover);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.main div {
+    position: relative;
+    background-color:var(--contorno-li-color);
+    border-radius: var(--border-radius);
+    margin: .5rem 0 .5rem 0;
+    padding: 1rem;
+}
+
+.main h6 {
+    padding-bottom: .4rem;
+}
+
+.main button {
+    position: absolute;
+    right: 1rem;
+    bottom: 50%;
+    width: 2rem;
+    height: 2rem;
+    transform: translateY(+50%);
+    transition: .2s;
+    background-color: var(--color-blue);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.main button:hover {
+    background-color: var(--color-blue-hover);
+}
+
+.main .text-motivational {
+    width: 90%;
+}

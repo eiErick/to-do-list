@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@media screen and (min-width: 500px) and (max-width: 800px) {
+@media screen and (min-width: 500px) and (max-width: 1050px) {
     #container {
         width: 80vw;
     }
@@ -18,7 +18,7 @@
     }
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 700px){
     #container {
         width: 95vw;
     }

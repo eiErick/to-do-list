@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+    .header {
+        width: 80vw;
+    }
+
+    .main {
+        width: 80vw;
+    }
+}

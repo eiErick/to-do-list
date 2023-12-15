@@ -1,53 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./img/list.svg" type="image/x-icon">
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/media-query.css">
-  <title>To-Do | List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/home.svg" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/home-query.css">
+    <title>Home</title>
 </head>
 <body>
+    <header class="header">
+        <button class="pomodoro-btn"><img src="./img/pomodoro.svg" alt="pomodoro"></button>   
+        <button class="todo-list-btn"><img src="./img/list.svg" alt="list"></button>
+    </header>
 
-  <header id="header" class="header">
-    <button class="pomodoro-btn"><img src="img/pomodoro.svg" alt="settings"></button>   
-    <input type="text" id="taskInput" placeholder="Adicionar nova tarefa">
-    <input type="date" id="taskDate">
-    <button id="add" class="btn-add-task">Adicionar</button>
-    <button class="settings-btn"><img src="img/settings.svg" alt="settings"></button>   
-  </header>
+    <main class="main">
+        <div class="Pending-tasks-today">
+            <p>Tarefas pendentes para hoje: <span class="quantilty-pending-tasks-today">00</span></p>
+        </div>
 
-  <main id="container" class="main">
-    <ul style="display: none" id="taskListToday"></ul>
-    <ul id="taskList"></ul>
-    
-    <p class="text-task-completed"><span class="quantity-completed-tasks"></span> <span">Tarefas Concluídas</span><span><img class="arrow" id="arrow" src="img/arrow-dn.svg" alt="Seta"></span></p>
-    <ul style="display: none" id="taskListCompleted"></ul>
-  </main>
-
-  <!-- Settings Menu: -->
-
-  <div class="settings-menu">
-    <div class="header-settings-menu" id="header-settings-menu">
-      <p class="text-header-settings-menu">Configurações</p>
-      <span id="setting-menu-closure-button" class="setting-menu-closure-button"><img src="img/close.svg" alt=""></span>
-    </div>
-    <div>
-      <button id="enble-disable-notification-btn" class="settings-menu-btn">Ativar Notificações</button>
-      <label for="data-import-btn" id="settings-menu-btn-label"><p id="settings-menu-btn-p" class="settings-menu-btn">Importar Dados</p></label>
-      <input type="file" name="input-file" id="data-import-btn" class="settings-menu-btn" accept=".json" >
-      <button id="data-download-btn" class="settings-menu-btn">Exportar Dados</button>
-      <button style="color: red;" id="delete-all-tasks-completed-btn" class="settings-menu-btn">Deletar todas as tarefas concluídas</button>
-      <button style="color: red;" id="delete-all-tasks-btn" class="settings-menu-btn">Deletar todas as tarefas na MEMÓRIA</button>
-    </div>
-  </div>
-
-</body>
-</html>
-<script src="js/script.js" type="module"></script>
-<script src="js/settings.js" type="module"></script>  
-<script src="js/notification.js" type="module"></script>
+        <div class="graphic">
+            <div class="graphic-title">
+                <span class="pomodoro-img"></span>
+                <h2>Tempo de foco nos útimos 7 dias</h2>
+            </div>
+            <canvas id="graphic-time-focus"></canvas>
+        </div>
+        <div class="motivational-phrase">
+            <h6>Frase Motivacional</h6>
+            <button class="reboot-motivational-btn"><img class="reboot-img" src="img/reboot.svg" alt="reboot"></button>
+            <p class="text-motivational">"Não deixe para amanhã o que pode ser feito agora!"</p>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/home.js" type="module"></script>
 </body>
 </html>

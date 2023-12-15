@@ -56,6 +56,16 @@ header {
     cursor: pointer;
 }
 
+.home-btn {
+    transition: .2s;
+    border: none;
+    width: 3rem;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    background: var(--color-blue);  
+    cursor: pointer; 
+}
+
 .pomodoro-btn:hover {
     background: var(--color-blue-hover);
 }

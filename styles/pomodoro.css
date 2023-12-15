@@ -3,7 +3,17 @@
 .list-btn {
     transition: .2s;
     border: none;
-    width: 3rem;
+    width: 6rem;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    background: var(--color-blue);  
+    cursor: pointer;
+}
+
+.home-btn {
+    transition: .2s;
+    border: none;
+    width: 6rem;
     border-radius: var(--border-radius);
     padding: 10px;
     background: var(--color-blue);  
@@ -11,6 +21,10 @@
 }
 
 .list-btn:hover {
+    background-color: var(--color-blue-hover);
+}
+
+.home-btn:hover {
     background-color: var(--color-blue-hover);
 }
 
@@ -43,7 +57,7 @@ main {
 .header-container-pomodoro_btns {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-bottom: 1rem;
 }
 
