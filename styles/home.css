@@ -9,20 +9,6 @@
     margin: 1rem 0 .5rem 0;
 }
 
-.header button {
-    transition: .2s;
-    width: 3rem;
-    background-color: var(--color-blue);
-    border: none;
-    border-radius: var(--border-radius);
-    padding: .6rem;
-    cursor: pointer;
-}
-
-.header button:hover {
-    background-color: var(--color-blue-hover);
-}
-
 .main {
     display: flex;
     flex-direction: column;
@@ -49,14 +35,14 @@
     height: 2rem;
     transform: translateY(+50%);
     transition: .2s;
-    background-color: var(--color-blue);
+    background-color: var(--primary-color);
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
 }
 
 .main button:hover {
-    background-color: var(--color-blue-hover);
+    background-color: var(--primary-color-hover);
 }
 
 .main .text-motivational {

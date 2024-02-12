@@ -5,8 +5,9 @@ import { notify } from "./notification.js";
 const main = document.querySelector("#container");
 const header = document.querySelector("#header");
 
-const pomodoroBtn = document.querySelector(".pomodoro-btn");
 const homeBtn = document.querySelector(".home-btn");
+const pomodoroBtn = document.querySelector(".pomodoro-btn");
+const settingBtn = document.querySelector(".settings-btn");
 
 const taskListToday = document.querySelector("#taskListToday");
 const taskList = document.querySelector("#taskList");
@@ -31,15 +32,20 @@ arrow.addEventListener("click", () => {
     arrow.setAttribute("src", "../img/arrow-up.svg");
     taskListCompleted.style.display = "block"
   }
-})
+});
+
+
+homeBtn.addEventListener("click", () => {
+  location.href = "../index.html"
+});
 
 pomodoroBtn.addEventListener("click", () => {
   location.href = "./pomodoro.html";
 });
 
-homeBtn.addEventListener("click", () => {
-  location.href = "../index.html"
-})
+settingBtn.addEventListener("click", () => {
+  location.href = "./settings.html";
+});
 
 resizeWindow();
 
@@ -72,7 +78,7 @@ if (savedTasksCompleted) {
     newTask.print(tasksCompleted.name, taskListCompleted, tasksCompleted.date);
   });
 
-  PrintQuantityCompletedTasks()
+  PrintQuantityCompletedTasks();
 }
 
 function addTask() {

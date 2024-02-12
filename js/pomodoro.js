@@ -5,15 +5,20 @@ const textLongRest = document.querySelector("#text-long-rest");
 const timer = document.querySelector("#timer");
 const startPausePomodoroBtn = document.querySelector("#start-pause-pomodoro-btn");
 
-const listBtn = document.querySelector(".list-btn");
 const homeBtn = document.querySelector(".home-btn");
-
-listBtn.addEventListener("click", () => {
-    location.href = "to-do-list.html";
-});
+const listBtn = document.querySelector(".list-btn");
+const settingsBtn = document.querySelector(".settings-btn");
 
 homeBtn.addEventListener("click", () => {
     location.href = "../index.html";
+});
+
+listBtn.addEventListener("click", () => {
+    location.href = "./to-do-list.html";
+});
+
+settingsBtn.addEventListener("click", () => {
+    location.href = "./settings.html";
 });
 
 startPausePomodoroBtn.addEventListener("click", () => {
@@ -60,26 +65,26 @@ function reset() {
 
     if (textFocus.classList[2] == "selected" && loop <= 7) {
         recordFocusTime(25);
-        deleteSelectedClass();
+        deleteClass();
         textShortRest.classList.add("selected");
 
         timeSeconds = shortRestTime;
         return;
     } else if (textShortRest.classList[2] == "selected" && loop <= 7) {
-        deleteSelectedClass();
+        deleteClass();
         textFocus.classList.add("selected");
         
         timeSeconds = focusTime;
         return;
     } else if (textLongRest.classList[2] == "selected" && loop <= 7) {
-        deleteSelectedClass();
+        deleteClass();
         textFocus.classList.add("selected");
         
         timeSeconds = focusTime;
         return;
     } else if (loop >= 7) {
         recordFocusTime(25);
-        deleteSelectedClass();
+        deleteClass();
         textLongRest.classList.add("selected");
 
         timeSeconds = longRestTime;
@@ -94,7 +99,7 @@ function ShowTimer() {
     timer.innerHTML = `${formattedTime}`;
 }
 
-function deleteSelectedClass() {
+function deleteClass() {
     textFocus.classList.remove("selected");
     textShortRest.classList.remove("selected");
     textLongRest.classList.remove("selected");

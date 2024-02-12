@@ -1,69 +1,29 @@
 @charset "UTF-8";
 
-.list-btn {
-    transition: .2s;
-    border: none;
-    width: 6rem;
-    border-radius: var(--border-radius);
-    padding: 10px;
-    background: var(--color-blue);  
-    cursor: pointer;
-}
-
-.home-btn {
-    transition: .2s;
-    border: none;
-    width: 6rem;
-    border-radius: var(--border-radius);
-    padding: 10px;
-    background: var(--color-blue);  
-    cursor: pointer;
-}
-
-.list-btn:hover {
-    background-color: var(--color-blue-hover);
-}
-
-.home-btn:hover {
-    background-color: var(--color-blue-hover);
+.header {
+    height: 30vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
 }
 
 main {
     display: flex;
     width: 100vw;
     height: 100vh;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 
 .container-pomodoro {
     display: flex;
     flex-direction: column;
-    height: 70vh;
-    width: 70vw;
+    height: 40vh;
+    width: 55vw;
+    margin-top: 5vh;
     border-radius: var(--border-radius);
     background-color: var(--contorno-li-color);
-}
-
-.header-container-pomodoro {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 1rem;
-    border-bottom: 2px solid var(--contorno-li-color-hover);
-    border-radius: var(--border-radius);
-}
-
-.header-container-pomodoro_btns {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    margin-bottom: 1rem;
-}
-
-.header-container-pomodoro_status {
-    display: flex;
-    justify-content: space-around;
 }
 
 .text-header {
@@ -74,7 +34,7 @@ main {
 }
 
 .selected {
-    background-color: var(--color-blue);
+    background-color: var(--primary-color);
 }
 
 .timer {
@@ -90,7 +50,7 @@ main {
     justify-content: center;
     background-color: var(--contorno-li-color);
     border-top: 2px solid var(--contorno-li-color-hover);
-    color: white;
+    color: var(--text-color);
     padding: 1.5vh;
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -98,10 +58,10 @@ main {
 
 .start-pause-pomodoro-btn {
     transition: .5s;
-    background-color: var(--color-blue);
+    background-color: var(--primary-color);
     border: none;
     font-size: 2em;
-    color: white;
+    color: var(--text-color);
     padding: 2vh;
     border-radius: var(--border-radius);
     cursor: pointer;  
@@ -109,5 +69,5 @@ main {
 }
 
 .start-pause-pomodoro-btn:hover {
-    background-color: var(--color-blue-hover);
+    background-color: var(--primary-color-hover);
 }

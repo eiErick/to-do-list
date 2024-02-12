@@ -3,13 +3,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 
 :root {
-    --bg-color: rgb(36, 36, 36);
-    --contorno-li-color: #3F3F3F;
     --contorno-li-color-hover: #4F4F4F;
-    --color-blue: #3584e4;
-    --color-blue-hover: #438DE6;
     --width-default: 50vw;
     --border-radius: 10px;
+}
+
+.dark {
+    --bg-color: #242424;
+    --contorno-li-color: #3F3F3F;
+    --contorno-li-color-hover: #4F4F4F;
+    --text-color: #ffffff;
+}
+
+.light {
+    --bg-color: #fafafa;
+    --contorno-li-color: #f2f2f2;
+    --contorno-li-color-hover: #ebebeb;
+    --text-color: #000000;
+}
+
+.color-red {
+    --primary-color: #ff0000;
+    --primary-color-hover: #ff4d4d;
+}
+
+.color-blue {
+    --primary-color: #3584e4;
+    --primary-color-hover: #438de6;
+}
+
+.color-purple {
+    --primary-color: #8756ec;
+    --primary-color-hover: #996fef;
+}
+
+.color-green {
+    --primary-color: #04875b;
+    --primary-color-hover: #2a9974;
 }
 
 * {
@@ -20,15 +50,11 @@
     box-sizing: border-box;
 }
 
-.blur {
-    filter: blur( 20px );
-}
-
 body {
     height: 100vh;
     width: 100%;
     background-color: var(--bg-color);
-    color: white;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     font-size: 18px;
@@ -37,7 +63,7 @@ body {
 
 /* Header */
 
-header {
+.header {
     transition: .2s;
     display: flex;
     align-items: center;
@@ -46,33 +72,25 @@ header {
     width: var(--width-default);
 }
 
-.pomodoro-btn {
+.header button {
     transition: .2s;
-    border: none;
     width: 3rem;
+    height: 3rem;
+    background-color: var(--primary-color);
+    border: none;
     border-radius: var(--border-radius);
-    padding: 10px;
-    background: var(--color-blue);  
+    padding: .6rem;
     cursor: pointer;
+    color: var(--text-color);
 }
 
-.home-btn {
-    transition: .2s;
-    border: none;
-    width: 3rem;
-    border-radius: var(--border-radius);
-    padding: 10px;
-    background: var(--color-blue);  
-    cursor: pointer; 
-}
-
-.pomodoro-btn:hover {
-    background: var(--color-blue-hover);
+.header button:hover {
+    background-color: var(--primary-color-hover);
 }
 
 #taskInput {
     width: 16vw;
-    height: 40px;
+    height: 3rem;
     border: none;
     border-radius: var(--border-radius);
     padding-left: 10px;
@@ -82,7 +100,7 @@ header {
 #taskDate {
     min-width: 10vw;
     text-align: center;
-    height: 40px;
+    height: 3rem;
     border: none;
     border-radius: var(--border-radius);
     padding: 0 1rem 0 1rem;
@@ -90,32 +108,8 @@ header {
 }
 
 button#add {
-    border: none;
-    border-radius: var(--border-radius);
-    height: 40px;
-    padding: 10px;
-    background: var(--color-blue);  
-    font-size: 14px;
-    cursor: pointer;
-    color: white;
-}
-
-button#add:hover {
-    background-color: var(--color-blue-hover);
-}
-
-.settings-btn {
-    transition: .2s;
-    border: none;
-    width: 3rem;
-    border-radius: var(--border-radius);
-    padding: 10px;
-    background: var(--contorno-li-color);  
-    cursor: pointer;
-}
-
-.settings-btn:hover {
-    background: var(--contorno-li-color-hover);
+    width: 5rem;
+    font-size: .8em;
 }
 
 /* Main */
@@ -192,76 +186,6 @@ li {
     position: absolute;
     margin-left: .5rem;
     cursor: pointer;
-}
-
-/* Settings */
-
-.setting-menu-closure-button {
-    text-align: center;
-    background-color: var(--contorno-li-color-hover);
-    position: absolute;
-    margin-right: 1rem;
-    right: 0;
-    cursor: pointer;
-    width: 2rem;
-    padding-top: .2rem;
-    border-radius: 50%;
-    margin-top: .05rem ;
-}
-
-.header-settings-menu {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    color: white;
-    margin-top: .5rem;
-}
-
-.text-header-settings-menu {
-    font-size: 1.5em;
-    margin-bottom: 1rem;
-}
-
-.settings-menu {
-    color: black;
-    border-radius: var(--border-radius);
-    position: absolute;
-    width: 35vw;
-    padding: 0 1rem 1rem;
-    box-shadow: 1px 1px solid black;
-    margin-top: 0.3rem;
-    background: var(--contorno-li-color);
-    right: 50%;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
-    transform: translateX(50%);
-    font-weight: 700; 
-}
-
-.settings-menu-btn {
-    transition: .2s;
-    border: none;
-    width: 100%;
-    padding: .5rem;
-    font-size: 1em;
-    background-color: white;
-    cursor: pointer;
-    font-weight: 700;
-    text-align: center;
-}
-
-.settings-menu-btn:hover {
-    background-color: rgb(220, 220, 220);
-}
-
-#data-import-btn {
-    display: none;
-}
-
-.show {
-    visibility: visible;
-    opacity: 1;
 }
 
 /* Task Editing Menu */

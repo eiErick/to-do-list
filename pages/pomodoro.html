@@ -10,25 +10,27 @@
     <title>To-Do | Pomodoro </title>
 </head>
 <body>
+    <header id="header" class="header">
+            <div class="header-pomodoro_btns">
+                <button class="home-btn"><img src="../img/home.svg" alt="home"></button>
+                <button class="list-btn"><img src="../img/list.svg" alt="icon of list"></button>
+                <button class="settings-btn"><img src="../img/settings.svg" alt="settings"></button>
+            </div>
+            <div class="header-pomodoro_status">
+                <p class="text-focus text-header selected" id="text-focus">Foco</p>
+                <p class="text-short-rest text-header" id="text-short-rest">Descanso curto</p>
+                <p class="text-long-rest text-header" id="text-long-rest">Descanso longo</p>
+            </div>
+    </header>
     <main>
         <div class="container-pomodoro">
-            <div class="header-container-pomodoro">
-                <div class="header-container-pomodoro_btns">
-                    <button class="list-btn"><img src="../img/list.svg" alt="ícone de lista"></button>
-                    <button class="home-btn"><img src="../img/home.svg" alt="home"></button>
-                </div>
-                <div class="header-container-pomodoro_status">
-                    <p class="text-focus text-header selected" id="text-focus">Foco</p>
-                    <p class="text-short-rest text-header" id="text-short-rest">Descanso curto</p>
-                    <p class="text-long-rest text-header" id="text-long-rest">Descanso longo</p>
-                </div>
-            </div>
             <div class="timer" id="timer">25:00</div>
             <div class="container-pomodoro_btn-pomodoro">
                 <button class="start-pause-pomodoro-btn" id="start-pause-pomodoro-btn">Começar</button>
             </div>
         </div>
     </main>
-    <script src="../js/pomodoro.js"></script>
+    <script src="../js/pomodoro.js" type="module"></script>
+    <script src="../js/theme.js" type="module"  ></script>
 </body>
 </html>

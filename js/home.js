@@ -1,5 +1,6 @@
 const pomodoroBtn = document.querySelector(".pomodoro-btn");
 const todoListBtn = document.querySelector(".todo-list-btn");
+const settingsBtn = document.querySelector(".settings-btn");
 
 const quantiltyPendingTasks = document.querySelector(".quantilty-pending-tasks-today");
 const graphicTimeFocus = document.querySelector("#graphic-time-focus");
@@ -32,13 +33,18 @@ if (savedTasks) {
     });
 }
 
-pomodoroBtn.addEventListener("click", () => {
-    location.href = "./pages/pomodoro.html";
-});
 
 todoListBtn.addEventListener("click", () => {
     location.href = "./pages/to-do-list.html";
 });
+
+pomodoroBtn.addEventListener("click", () => {
+    location.href = "./pages/pomodoro.html";
+});
+
+settingsBtn.addEventListener("click", () => {
+    location.href = "./pages/settings.html";
+})
 
 rebootMotivationalBtn.addEventListener("click", () => {
     printPhraseMotivational();
