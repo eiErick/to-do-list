@@ -27,13 +27,13 @@ const dateToday = (`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate(
 let currentAngle = false;
 
 arrow.addEventListener("click", () => {
-  if (arrow.attributes["src"].textContent == "../img/arrow-up.svg") {
-    arrow.setAttribute("src", "../img/arrow-dn.svg");
-    taskListCompleted.style.display = "none"
-  } else if (arrow.attributes["src"].textContent == "../img/arrow-dn.svg") {
-    arrow.setAttribute("src", "../img/arrow-up.svg");
-    taskListCompleted.style.display = "block"
-  }
+	currentAngle += 180;
+	arrow.style.transform = `rotate(${currentAngle}deg)`;
+	if (taskListCompleted.style.display === "none") {
+		taskListCompleted.style.display = "block";
+	} else {
+		taskListCompleted.style.display = "none";
+	}
 });
 
 homeBtn.addEventListener("click", () => {

@@ -45,6 +45,10 @@
     background-color: var(--primary-color-hover);
 }
 
+.reboot-img {
+    transition: transform var(--transition-time) ease-in-out;
+}
+
 .main .text-motivational {
     width: 90%;
 }

@@ -8,6 +8,7 @@ const graphicTimeFocus = document.querySelector("#graphic-time-focus");
 const textMotivational = document.querySelector(".text-motivational");
 
 const rebootMotivationalBtn = document.querySelector(".reboot-motivational-btn");
+const rebootMotivationalImg = document.querySelector(".reboot-img");
 
 const date = new Date();
 const dateToday = (`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`);
@@ -46,8 +47,11 @@ settingsBtn.addEventListener("click", () => {
 	location.href = "./pages/settings.html";
 });
 
+let currentAngle = false;
 
 rebootMotivationalBtn.addEventListener("click", () => {
+	currentAngle -= 360;
+	rebootMotivationalImg.style.transform = `rotate(${currentAngle}deg)`;
 	printPhraseMotivational();
 });
 
