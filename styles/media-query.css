@@ -1,24 +1,6 @@
 @charset "UTF-8";
 
-@media screen and (min-width: 500px) and (max-width: 1050px) {
-    #container {
-        width: 80vw;
-    }
-
-    #header {
-        width: 80vw;
-    }
-
-    #taskInput{
-        width: 30vw;
-    }
-
-    .settings-menu {
-        width: 60vw;
-    }
-}
-
-@media screen and (max-width: 700px){
+@media screen and (max-width: 1050px){
     #container {
         width: 95vw;
     }
@@ -33,24 +15,28 @@
         font-size: .8em;
         padding: 0 .2rem 0;
         text-align: center;
+        height: 2.5rem;
     }
 
     #taskDate {
-        min-width: 30vw;
+        min-width: 10vw;
         padding: 0 .1rem 0 .1rem;
         text-align: center;
+        height: 2.5rem;
+    }
+
+    .header button {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     button#add {
-        font-size: 18px;
-    }
-
-    .settings-menu {
-        width: 90vw;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     label {
-        font-size: .6em;
+        font-size: .8em;
     }
 
     .text-date {
